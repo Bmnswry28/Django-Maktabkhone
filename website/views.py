@@ -1,6 +1,9 @@
-from django.urls import path
-from . import views
+from django.shortcuts import render
 
-urlpatterns = [
-    path('', views.indx_viwe, name='index'),
-]
+
+def index_view(request):
+    return render(request, 'website\index.html')
+def about_view(request):
+    return render(request,'website/about.html')
+def contact_view(requset):
+    return render (requset,'website/contact.html')
