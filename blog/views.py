@@ -14,7 +14,7 @@ def blog_single(request, pid):
         published_date__lte=timezone.now()
     )
 
-    post.counted_view += 1
+    post.counted_views += 1
     post.save()
 
     context = {'post': post}
