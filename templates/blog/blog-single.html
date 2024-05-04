@@ -147,33 +147,41 @@
 							<div class="navigation-area">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-										<div class="thumb">
-											<a href="#"><img class="img-fluid" src="{% static 'img/blog/prev.jpg' %}" alt=""></a>
-										</div>
-										<div class="arrow">
-											<a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
-										</div>
+										{% if previous_post %}
+											{% if previous_post.image %}
+												<div class="thumb">
+													<img class="img-fluid" src="{{ previous_post.image.url }}" alt="{{ previous_post.title }}">
+												</div>
+											{% else %}
+												<div class="thumb">
+													<img class="img-fluid" src="{% static 'img/blog/default-thumbnail.jpg' %}" alt="{{ previous_post.title }}">
+												</div>
+											{% endif %}
+										{% endif %}
 										<div class="detials">
 											{% if previous_post %}
-											<p>Prev Post</p>
-											<a href="{% url 'blog:single' previous_post.id %}"><h4>{{ previous_post.title }}</h4></a>
+												<a href="{% url 'blog:single' previous_post.id %}"><h4>{{ previous_post.title }}</h4></a>
 											{% endif %}
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
 										<div class="detials">
 											{% if next_post %}
-											<p>Next Post</p>
-											<a href="{% url 'blog:single' next_post.id %}"><h4>{{ next_post.title }}</h4></a>
+												<a href="{% url 'blog:single' next_post.id %}"><h4>{{ next_post.title }}</h4></a>
 											{% endif %}
 										</div>
-										<div class="arrow">
-											<a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
-										</div>
-										<div class="thumb">
-											<a href="#"><img class="img-fluid" src="{% static 'img/blog/next.jpg'%}" alt=""></a>
-										</div>										
-									</div>									
+										{% if next_post %}
+											{% if next_post.image %}
+												<div class="thumb">
+													<img class="img-fluid" src="{{ next_post.image.url }}" alt="{{ next_post.title }}">
+												</div>
+											{% else %}
+												<div class="thumb">
+													<img class="img-fluid" src="{% static 'img/blog/default-thumbnail.jpg' %}" alt="{{ next_post.title }}">
+												</div>
+											{% endif %}
+										{% endif %}
+									</div>								
 								</div>
 							</div>
 							<div class="comments-area">
