@@ -63,7 +63,7 @@ def singup_views(request):
     else:
         form = UserForm()
     
-    return render(request, 'accounts/signup.html', {'form': form})
+    return render(request, 'accounts/singup.html', {'form': form})
 
 def loguot_views(request):
     if request.user.is_authenticated:
