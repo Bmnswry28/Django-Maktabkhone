@@ -4,8 +4,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 import re
 from accounts.forms import UserForm
-
-def login_views(request):
+from django.contrib.auth.forms import UserCreationForm
+def login_view(request):
     error = None
     if request.method == 'POST':
         username_or_email = request.POST.get("username")
@@ -33,7 +33,7 @@ def login_views(request):
     form = AuthenticationForm()
     context = {'form': form, 'error': error}
     return render(request, 'accounts/login.html', context)
-def singup_views(request):
+def signup_view(request):
     if request.user.is_authenticated:
         return redirect('/')
 
@@ -59,7 +59,7 @@ def singup_views(request):
     form = UserForm()
     return render(request, 'accounts/signup.html', {'form': form})
 
-def loguot_views(request):
+def logout_view(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('/')
