@@ -17,3 +17,5 @@ def contact_view(request):
             messages.add_message(request,messages.ERROR,'ERROR')
     form = Nameforms()
     return render(request, 'website/contact.html',{'form':form})
+def coming_soon(request):
+    return render(request, 'coming_soon.html')
