@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
     'blog.apps.BlogConfig',
-    'accounts'
+    'accounts',
+    "compressor"
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,9 @@ EMAIL_PORT = 587
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'bmnswry27@gmail.com'
 EMAIL_HOST_PASSWORD = 'rfdx zybt kbhn ckri'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)

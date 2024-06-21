@@ -1,3 +1,4 @@
+{% load compress %}
 {% load static %}
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
@@ -17,7 +18,8 @@
 		<!-- Site Title -->
 		<title>Travel</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+		{% compress css %}
 			<!--
 			CSS
 			============================================= -->
@@ -30,6 +32,7 @@
 			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
 			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">				
 			<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		{% endcompress %}
 		</head>
 		<body>
     <!-- Modal for Messages -->
@@ -204,6 +207,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</footer>
+			{% compress js %}
             <script src="{% static 'js/vendor/jquery-2.2.4.min.js'%} "></script>
 			<script src="{% static 'js/popper.min.js' %}"></script>
 			<script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>			
@@ -218,5 +222,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="{% static 'js/owl.carousel.min.js' %}"></script>							
 			<script src="{% static 'js/mail-script.js' %}"></script>	
 			<script src="{% static 'js/main.js' %}"></script>	
+			{% endcompress %}
 			<!-- End footer Area -->	
 			 
